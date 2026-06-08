@@ -50,7 +50,15 @@ Architect-Builder/
 
 ## 安装
 
-把 skill 文件夹复制到你的 Codex skills 目录：
+先克隆这个仓库：
+
+```powershell
+cd D:\Users\bubble\Desktop
+git clone https://github.com/bubble0462/Architect-Builder.git
+cd Architect-Builder
+```
+
+然后把 skill 文件夹复制到你的本地 Codex skills 目录：
 
 ```powershell
 Copy-Item -Recurse .\skills\plantask "$env:USERPROFILE\.codex\skills\plantask"
@@ -59,6 +67,8 @@ Copy-Item -Recurse .\skills\reviewtask "$env:USERPROFILE\.codex\skills\reviewtas
 ```
 
 如果本地已经有同名 skill，建议先备份。只有在你明确想覆盖时才加 `-Force`。
+
+为什么是复制，而不是直接从 GitHub 安装？因为 Codex 会从本机 `.codex/skills` 目录加载本地 skills。这个仓库只是源码包；复制这一步是把 skill 放到 Codex 能发现的位置，同时让 Git 仓库和你正在使用的本地 skill 目录保持隔离。
 
 ## 使用方法
 
