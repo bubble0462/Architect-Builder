@@ -2,6 +2,27 @@
 
 **English** | [简体中文](README.zh-CN.md)
 
+> Stop letting one AI plan, code, and judge itself. Architect Builder separates AI-assisted development into explicit Architect -> Builder -> Reviewer handoff files.
+
+[![Claude Code Plugin](https://img.shields.io/badge/Claude%20Code-plugin-5B4BFF)](https://code.claude.com/docs/en/plugins)
+[![Codex Skills](https://img.shields.io/badge/Codex-skills-111111)](https://openai.com/codex/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
+## Quick Install
+
+```text
+/plugin marketplace add bubble0462/Architect-Builder
+/plugin install architect-builder@architect-builder
+```
+
+Then use:
+
+```text
+/architect-builder:plantask
+/architect-builder:executetask
+/architect-builder:reviewtask
+```
+
 Architect Builder is a lightweight Codex skill workflow for separating AI-assisted software work into three explicit phases:
 
 1. **Plan** with `plantask`
@@ -9,6 +30,21 @@ Architect Builder is a lightweight Codex skill workflow for separating AI-assist
 3. **Review** with `reviewtask`
 
 The goal is to make AI coding work more controlled, auditable, and repeatable. Instead of asking one model to freely plan, implement, and judge its own work, this workflow creates handoff files under `.ai/` and uses them as a contract between planning, execution, and review.
+
+## Why Use This?
+
+AI coding agents are useful, but long-running sessions often drift:
+
+- The model expands the scope.
+- The implementation no longer matches the original request.
+- The same model reviews its own assumptions.
+- Tests and acceptance criteria are added after the fact, or skipped entirely.
+
+Architect Builder makes each phase explicit:
+
+- `plantask` defines the scope before implementation.
+- `executetask` builds only what the task files specify.
+- `reviewtask` checks the result against the original plan, diff, and acceptance criteria.
 
 ## Skills
 
@@ -176,3 +212,10 @@ AI coding can drift when planning, implementation, and review happen in one unin
 - They are designed to be copied into your local `.codex/skills` directory.
 - Keep project-specific `.ai/` files inside each project, not inside this repository.
 
+## Suggested GitHub Topics
+
+If you fork or publish a related workflow, these topics make it easier to discover:
+
+```text
+claude-code, claude-plugin, codex, ai-agent, agentic-coding, skills, code-review, ai-workflow, software-engineering
+```
