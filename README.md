@@ -37,6 +37,9 @@ This works especially well when you want one model to act as the architect/revie
 
 ```text
 Architect-Builder/
+  .claude-plugin/
+    marketplace.json
+    plugin.json
   README.md
   README.zh-CN.md
   skills/
@@ -49,6 +52,30 @@ Architect-Builder/
 ```
 
 ## Installation
+
+### Claude Code Plugin Marketplace
+
+Claude Code can install this repository as a plugin marketplace:
+
+```text
+/plugin marketplace add bubble0462/Architect-Builder
+```
+
+Then install the plugin:
+
+```text
+/plugin install architect-builder@architect-builder
+```
+
+After installation, the skills are available under the plugin namespace:
+
+```text
+/architect-builder:plantask
+/architect-builder:executetask
+/architect-builder:reviewtask
+```
+
+### Codex Local Skills
 
 Clone this repository first:
 
@@ -69,6 +96,16 @@ Copy-Item -Recurse .\skills\reviewtask "$env:USERPROFILE\.codex\skills\reviewtas
 If a skill already exists, back it up first or add `-Force` only when you intentionally want to overwrite it.
 
 Why copy instead of installing directly from GitHub? Codex loads local skills from your `.codex/skills` directory. This repository is the source package; copying puts the skills where Codex can discover them while keeping the repository separate from your active local skill directory.
+
+### Local Claude Code Plugin Test
+
+If you want to test the plugin locally before installing from GitHub:
+
+```powershell
+claude --plugin-dir .\Architect-Builder
+```
+
+The marketplace metadata lives in `.claude-plugin/marketplace.json`, and the plugin manifest lives in `.claude-plugin/plugin.json`.
 
 ## Usage
 
@@ -134,7 +171,7 @@ AI coding can drift when planning, implementation, and review happen in one unin
 
 ## Notes
 
-- These skills are plain local Codex skills.
+- These skills can be used as local Codex skills or as a Claude Code marketplace plugin.
 - They do not require runtime dependencies.
 - They are designed to be copied into your local `.codex/skills` directory.
 - Keep project-specific `.ai/` files inside each project, not inside this repository.

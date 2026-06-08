@@ -1,0 +1,23 @@
+{
+  "name": "architect-builder",
+  "owner": {
+    "name": "bubble0462"
+  },
+  "metadata": {
+    "description": "Architect Builder workflow skills for planning, executing, and reviewing AI-assisted software work.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "architect-builder",
+      "description": "A three-phase AI development workflow with plantask, executetask, and reviewtask skills.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/plantask",
+        "./skills/executetask",
+        "./skills/reviewtask"
+      ]
+    }
+  ]
+}
